@@ -1,0 +1,29 @@
+<!--
+ * :Date: 2021-07-24 15:48:47
+ * :LastEditTime: 2021-07-27 14:00:52
+ * :Description: 详情页模板
+-->
+
+{% extends "./base.html" %}
+
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+
+{% block main %}
+
+    {% if post %}
+    <h1>{{ post.title }}</h1>
+    <div>
+        <span>分类：{{post.category.name}}</span>
+        <span>作者：{{post.owner.username}}</span>
+    </div>
+    <hr />
+    <p>
+        {{ post.content }}
+    </p>
+    {% endif %}
+
+{% endblock %}

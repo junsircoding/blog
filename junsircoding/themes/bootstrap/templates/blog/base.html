@@ -1,0 +1,191 @@
+<!--
+ * :Date: 2021-07-25 10:44:17
+ * :LastEditTime: 2021-08-12 15:00:34
+ * :Description: 首页基本模板,引入了bootstrap样式
+-->
+
+<!-- 加载静态文件 -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    {% block title %}
+    junsircoding
+    {% endblock %}
+  </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+
+  <link rel="SHORTCUT ICON" href="{% static 'img/favicon.ico' %}">
+  <style>
+    .post {
+      margin-bottom: 5px;
+    }
+
+    .selector-for-some-widget {
+      box-sizing: content-box;
+    }
+
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: rgb(248, 249, 250);
+      color: #555;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    
+    #myBtn:hover {
+      background-color: rgb(193, 193, 193);
+      color: black;
+    }
+  </style>
+  <!-- 拓展head, 博文详情页可以导入代码高亮js插件 -->
+  {% block extra_head %}
+  {% endblock %}
+</head>
+
+<body>
+
+
+  <div class="container head">
+    <hr />
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'img/avatar.jpg' %}" alt="首页" class="rounded-circle" height="35" width="35">
+        junsircoding
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- 按类别筛选 -->
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-expanded="false">
+              类别
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% for cate in navs %}
+              <a class="dropdown-item" href="{% url 'category-list' cate.id %}">
+                {{cate.name}}
+              </a>
+              {% endfor %}
+            </div>
+          </li>
+          <!-- 按标签筛选 -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-expanded="false">
+              标签
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% for tag in tags %}
+              <a class="dropdown-item" href="{% url 'tag-list' tag.id %}">
+                {{tag.name}}
+              </a>
+              {% endfor %}
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'links' %}">知识库</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search/" method="GET">
+          <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="仅支持搜索博文标题" aria-label="Search"
+            value="{{ keyword }}">
+          <button class="btn btn-outline-success" type="submit">搜索本站</button>
+        </form>
+      </div>
+    </nav>
+
+
+    <hr />
+  </div>
+
+  <div class="container main">
+    <div class="row">
+
+      <div class="col-12 post-list">
+        {% block main %}
+        {% endblock %}
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+
+    {% block footer %}
+    <div class="card text-center">
+      <div class="card-body">
+        <p style="color:#939393;">
+          联系我：
+          <a href="mailto:junsircoding@foxmail.com" class="card-text"
+            style="color:#939393;">junsircoding@gmail.com</a>
+        </p>
+
+        <!-- <p style="color:#939393;">
+          <a href="https://beian.miit.gov.cn" class="card-text" style="color:#939393;">粤ICP备2021114242号-1</a>
+        </p>
+
+        <p style="color:#939393;">
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502007893" class="card-text"
+            style="color:#939393;">
+            <img
+              src="https://awesome-junjun-subscription-bucket-1300339528.cos.ap-guangzhou.myqcloud.com/junsirblog-images/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" />
+            粤公网安备 44030502007893号
+          </a>
+        </p> -->
+
+      </div>
+    </div>
+    <div class="container">
+
+    </div>
+    {% endblock %}
+
+  </footer>
+  <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+  <script>
+    // 当网页向下滑动 20px 出现"返回顶部" 按钮
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      console.log(121);
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
+
+    // 点击按钮, 返回顶部
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}" crossorigin="anonymous"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!--
+ * :Date: 2021-07-24 15:48:40
+ * :LastEditTime: 2021-08-12 14:38:10
+ * :Description: 博文列表页模板 x bootstrap
+-->
+
+<!-- 继承自主页 -->
+{% extends "./base.html" %}
+
+<!-- 网页标签标题 -->
+{% block title %}
+    {% if tag %}
+        按标签[{{ tag.name }}]查询博文
+    {% elif category %}
+        按分类[{{ category.name }}]查询博文
+    {% else %}
+        junsircoding
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+
+    <!-- 博文模块 -->
+    {% for post in post_list %}
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'post-detail' post.id %}">
+                        {{post.title}}
+                    </a>
+                </h5>
+                <p class="card-text">
+                    {{ post.desc | slice:":40" }}
+                </p>
+                <span>
+                    分类：
+                    <a class="badge badge-primary" href="{% url 'category-list' post.category.id %}">
+                        {{post.category.name}}
+                    </a>
+                    &nbsp;
+                    标签：{% for tag in post.tag.all %}
+                    <a class="badge badge-info" href="{% url 'tag-list' tag.id %}">
+                        {{ tag.name }}
+                    </a>
+                    {% endfor %}
+                    &nbsp;
+                    创作时间：
+                    <span class="badge badge-success">
+                        {{ post.created_time }}
+                    </span>
+                    &nbsp;
+                    评论数：
+                    <span class="badge badge-secondary">
+                    {{ post.comment_count }}
+                    </span>
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+
+    <!-- 分页模块 -->
+    {% if page_obj %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a  class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                        &laquo;
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% for page_num in paginator.page_range %}
+                    {% if forloop.counter == page_obj.number %}
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{forloop.counter}}" tabindex="-1">
+                                {{forloop.counter}}
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{forloop.counter}}" tabindex="-1">
+                                {{forloop.counter}}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            &raquo;
+                        </a>
+                    </li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+    {% endif %}
+
+{% endblock %}

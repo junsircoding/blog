@@ -1,0 +1,57 @@
+<!--
+ * :Date: 2021-07-24 15:48:47
+ * :LastEditTime: 2021-08-11 19:53:23
+ * :Description: 详情页模板
+-->
+
+{% extends "./base.html" %}
+{% load comment_block %}
+<!-- 加载静态文件 -->
+{% load static %}
+
+<!-- 浏览器标题栏标题 -->
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+<!-- 代码高亮插件 -->
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prism.css' %}"/>
+    <script src="{% static 'js/prism.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+
+{% if post %}
+    <h1>{{ post.title }}</h1>
+    <div>
+        <h6>
+            分类：
+            <a class="badge badge-primary" href="{% url 'category-list' post.category.id %}">
+                {{post.category.name}}
+            </a>
+        </h6>
+        <h6>
+            标签：
+            {% for tag in post.tag.all %}
+                    <a class="badge badge-info" href="{% url 'tag-list' tag.id %}">{{ tag.name }}</a>
+                    {% endfor %}
+        </h6>
+    </div>
+
+    <hr />
+    <div class="alert alert-info" role="alert">
+        正文
+      </div>
+    
+    <p>
+        <!-- 告诉django不转义markdown生成的html代码 -->
+        {% autoescape off %}
+            {{ post.content_html }}
+        {% endautoescape %}
+    </p>
+{% endif %}
+
+{% comment_block request.path %}
+
+{% endblock %}

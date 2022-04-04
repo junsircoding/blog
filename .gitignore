@@ -1,0 +1,12 @@
+# 缓存文件
+*.pyc
+# 测试数据库
+*.sqlite3
+db.sqlite3
+# 测试文件夹
+__pycache__/
+*.py[cod]
+# 日志
+*.log
+# vscode 配置
+.vscode/

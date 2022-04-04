@@ -1,0 +1,47 @@
+<!--
+ * :Date: 2021-07-24 15:48:40
+ * :LastEditTime: 2021-07-27 15:20:08
+ * :Description: 博文列表页模板
+-->
+
+{% extends "./base.html" %}
+
+{% block title %}
+    {% if tag %}
+        标签列表页：{{ tag.name }}
+    {% elif category %}
+        分类列表页：{{ category.name }}
+    {% else %}
+        junsircoding
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+<ul>
+    {% for post in post_list %}
+    <li>
+        <a href="{% url 'post-detail' post.id %}">{{post.title}}</a>
+        <div>
+            <span>作者：{{post.owner.username}}</span>
+            <span>分类：{{post.category.name}}</span>
+        </div>
+        <p>{{post.desc}}</p>
+    </li>
+    {% endfor %}
+
+    {% if page_obj %}
+    
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+        {% endif %}
+        
+        第 {{ page_obj.number }} 页 | 共 {{ paginator.num_pages }} 页
+            
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+        {% endif %}
+
+    {% endif %}
+    
+</ul>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!--
+ * :Date: 2021-07-27 19:16:33
+ * :LastEditTime: 2021-07-28 15:30:18
+ * :Description: 评论表单页 x bootstrap
+-->
+
+<hr />
+<div class="alert alert-primary" role="alert">
+  发表评论
+</div>
+<div class="comment">
+  <form class="form-group" action="/comment/" method="POST">
+    {% csrf_token %}
+    <input name="target" type="hidden" value="{{ target }}" />
+    <!-- 提交评论表单 -->
+    {{ comment_form }}
+    <div class="form-group">
+      <input class="btn btn-outline-primary" type="submit" value="写好了！" />
+    </div>
+    
+  </form>
+  <hr />
+
+  <!-- 加载所有评论 -->
+  {% if comment_list %}
+    <div class="alert alert-success" role="alert">
+      评论列表
+    </div>
+  {% else %}
+    <div class="alert alert-success" role="alert">
+      没有评论
+    </div>
+  {% endif %}
+  
+  <ul class="list-group">
+    {% for comment in comment_list %}
+    <li class="list-group-item">
+      <div class="nickname">
+        <a href="{{ comment.website }}">
+          {{ comment.nickname }}
+        </a>
+        <span>
+          {{ comment.created_time }}
+        </span>
+      </div>
+      <div class="comment-content">
+        {% autoescape off %}
+          {{ comment.content }}
+        {% endautoescape %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+

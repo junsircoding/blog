@@ -1,0 +1,85 @@
+<!--
+ * :Date: 2021-07-27 15:23:24
+ * :LastEditTime: 2021-07-28 15:25:23
+ * :Description: 友链 x bootstrap
+-->
+
+<!-- 继承自主页 -->
+{% extends "blog/base.html" %}
+
+<!-- 浏览器标签页标题 -->
+{% block title %}
+知识库
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th scope="col">名称</th>
+            <th scope="col">网址</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for link in link_list %}
+        <tr>
+            <td>
+                {{ link.title }}
+            </td>
+            <td>
+                <a href="{{ link.href }}" target="_blank">
+                    {{ link.href }}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<!-- 分页模块 -->
+{% if page_obj %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                &laquo;
+            </a>
+        </li>
+        {% endif %}
+
+        {% for page_num in paginator.page_range %}
+        {% if forloop.counter == page_obj.number %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{forloop.counter}}" tabindex="-1">
+                {{forloop.counter}}
+            </a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{forloop.counter}}" tabindex="-1">
+                {{forloop.counter}}
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                &raquo;
+            </a>
+        </li>
+        {% endif %}
+
+    </ul>
+</nav>
+{% endif %}
+
+
+{% endblock %}
