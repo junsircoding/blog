@@ -10,3 +10,4 @@ __pycache__/
 *.log
 # vscode 配置
 .vscode/
+.DS_Store
