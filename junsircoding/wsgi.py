@@ -10,7 +10,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 # 将项目配置文件加入环境变量
 profile = os.environ.get(
-    "TYPEIDEA_PROFILE",
+    "JUNSIRCODING_PROFILE",
     # "dev_conf"
     "prod_conf"
 )

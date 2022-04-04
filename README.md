@@ -73,8 +73,8 @@
     ```
 - 2.开启 Gunicorn 服务
     ```shell
-    cd /root/junsirblog/typeidea
-    gunicorn typeidea.wsgi:application -w 3 -k gthread -b 127.0.0.1:8000 --max-requests=10000 -D
+    cd /path/to/blog/root/floder
+    gunicorn junsircoding.wsgi:application -w 3 -k gthread -b 127.0.0.1:8000 --max-requests=10000 -D
     ```
 - 3.重启 Nginx
     ```shell
@@ -94,14 +94,14 @@ kill -9 ${GUNICORN_PID}
 echo "Gunicorn process already killed"
 
 # 进入 manage.py 同级目录
-cd /root/junsirblog/typeidea
+cd /path/to/blog/root/floder
 
 # 激活虚拟环境
 source /root/miniconda3/bin/activate /root/miniconda3/envs/blog_dev
 echo "blog_dev miniconda enviroment already activated"
 
 # 开启 gunicorn 进程
-gunicorn typeidea.wsgi:application -w 3 -k gthread -b 127.0.0.1:8000 --max-requests=10000 -D
+gunicorn junsircoding.wsgi:application -w 3 -k gthread -b 127.0.0.1:8000 --max-requests=10000 -D
 echo "Gunicorn process already started"
 
 # 重启 nginx

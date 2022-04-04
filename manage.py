@@ -9,7 +9,7 @@ import sys
 if __name__ == "__main__":
     # 将项目配置文件加入环境变量
     profile = os.environ.get(
-        "TYPEIDEA_PROFILE",
+        "JUNSIRCODING_PROFILE",
         "settings"
     )
     os.environ.setdefault(
