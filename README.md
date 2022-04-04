@@ -31,13 +31,19 @@
     brew install redis
     ```
 
-3. 创建管理员账号密码
+3. 迁移建表
+
+    ```shell
+    django-admin migrate
+    ```
+
+4. 创建管理员账号密码
 
     ```shell
     python manage.py createsuperuser
     ```
 
-4. 从后台录入文章
+5. 从后台录入文章
 
     ```http
     http://127.0.0.1:8000/junsiradmin/
