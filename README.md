@@ -37,13 +37,17 @@
     django-admin migrate
     ```
 
-4. 创建管理员账号密码
+4. 补充你自己的项目密钥
+
+`junsircoding/settings/settings.py` 的 SECRET_KEY
+
+5. 创建管理员账号密码
 
     ```shell
     python manage.py createsuperuser
     ```
 
-5. 从后台录入文章
+6. 从后台录入文章
 
     ```http
     http://127.0.0.1:8000/junsiradmin/

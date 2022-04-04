@@ -10,7 +10,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 项目密钥
-SECRET_KEY = '14^-bhlqhdidy7a1_e0vni+9(5k8c@*o+f44&oapdc-kh(_$#i'
+SECRET_KEY = ''
 
 # 调试模式为打开
 DEBUG = True
