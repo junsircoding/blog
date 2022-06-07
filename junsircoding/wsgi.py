@@ -1,9 +1,10 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 21:54:46
-:LastEditTime: 2021-07-23 21:54:46
-:Description: 实现了 wsgi 协议的 app
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : junsircoding/wsgi.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
 
 import os
 

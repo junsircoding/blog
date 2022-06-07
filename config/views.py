@@ -1,9 +1,10 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 22:38:36
-:LastEditTime: 2021-07-24 15:42:36
-:Description: config APP 的视图函数, 侧边栏的逻辑已在通用视图中包含, 这里不再写侧边栏的查询逻辑
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : config/views.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
 
 from blog.views import CommonViewMixin
 from config.models import Link
@@ -21,4 +22,3 @@ class LinkListView(CommonViewMixin, ListView):
     context_object_name = "link_list"
 
     paginate_by = 8
-    

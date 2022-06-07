@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-27 17:12:01
-:LastEditTime: 2021-07-27 17:12:01
-:Description: 评论表单
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : comment/forms.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 import mistune
 from django import forms
 from comment.models import Comment

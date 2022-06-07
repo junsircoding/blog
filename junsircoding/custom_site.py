@@ -1,9 +1,10 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-24 15:03:54
-:LastEditTime: 2021-07-24 15:03:54
-:Description: 自定义管理后台
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : junsircoding/custom_site.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
 
 from django.contrib.admin import AdminSite
 

@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-24 14:53:54
-:LastEditTime: 2021-07-24 14:53:55
-:Description: 后台管理表单自定义显示形式
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : blog/adminforms.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 from django import forms
 
 

@@ -1,8 +1,13 @@
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : blog/middleware/user_id.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 """
-:Date: 2021-07-24 11:38:34
-:LastEditTime: 2021-07-24 11:38:35
-:Description: 生成用户唯一 uuid, 用来标识不同用户
+生成用户唯一 uuid, 用来标识不同用户
 Django 的 middleware 在项目启动时会被初始化, 接受请求之后, 会根据配置中的 MIDDLEWARE 配置顺序调用, 传递 request 作为参数
 request 是一个类的实例, 可以动态赋值
 """

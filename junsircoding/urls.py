@@ -1,10 +1,10 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-25 18:11:59
-:LastEditTime: 2021-07-27 09:49:10
-:Description: 项目总路由表
-"""
-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : junsircoding/urls.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
 
 from django.conf.urls import url, include
 from blog.views import (

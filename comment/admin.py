@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 22:51:35
-:LastEditTime: 2021-07-24 13:41:47
-:Description: 
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : comment/admin.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 from django.contrib import admin
 from comment.models import Comment
 from junsircoding.custom_site import custom_site

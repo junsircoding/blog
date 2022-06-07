@@ -1,9 +1,10 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2022-04-04 21:41:45
-:LastEditTime: 2022-04-04 21:41:45
-:Description: 清除缓存
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : purge.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
 
 import os
 import shutil
@@ -31,4 +32,3 @@ if __name__ == "__main__":
     root_dir = os.sep.join(path_list)
     # 开始清除
     purge_cache(root_dir)
- 

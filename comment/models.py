@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 22:11:31
-:LastEditTime: 2021-07-23 22:12:27
-:Description: 
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : comment/models.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 from blog.models import Post
 from django.db import models
 

@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 21:48:13
-:LastEditTime: 2021-07-23 21:48:13
-:Description: 全局配置文件
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : junsircoding/settings/settings.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 import os
 
 # manage.py 同级目录

@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 22:11:31
-:LastEditTime: 2021-07-23 22:12:27
-:Description: blog 模块的 ORM 库表模型
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : blog/models.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 import mistune
 from django.contrib.auth.models import User
 from django.db import models

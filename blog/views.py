@@ -1,9 +1,11 @@
-# -*- coding:utf-8 -*-
-"""
-:Date: 2021-07-23 22:11:31
-:LastEditTime: 2021-07-24 15:38:47
-:Description: blog APP 的接口
-"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date        : 2022-06-07 10:27:31
+# @Author      : junsircoding
+# @File        : blog/views.py
+# @Info        : 
+# @Last Edited : 2022-06-07 14:52:52
+
 from datetime import date
 from django.shortcuts import get_object_or_404
 from config.models import SideBar
